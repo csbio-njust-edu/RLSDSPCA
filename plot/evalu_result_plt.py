@@ -2,11 +2,9 @@ import warnings
 warnings.filterwarnings("ignore")
 from mpl_toolkits.mplot3d import *
 from matplotlib import cm
-# 或者
 
 import mpl_toolkits.mplot3d as p3d
 
-# 第一步需要导入numpy，matplotib.pyplot和Axes3D函数
 
 import numpy as np
 import matplotlib.pyplot as plt
