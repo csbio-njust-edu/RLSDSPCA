@@ -5,8 +5,8 @@ three different types of gene expression data including Cholangiocarcinoma (CHOL
 The datasets of gene expression for characteristic gene selection and tumor classification were obtained from The Cancer Genome Atlas (TCGA, https://portal.gdc.cancer.gov/) database.
 ## (II) FeatureSelection
 FeatureSelection.py, Input the feature matrix, select the number of genes n needed, run the program, and complete the gene selection of top n.
-## (III)  existing method
-PCA,gLPCA,gLSPCA,RgLPCA,SDSPCA. The code of the comparision method can be obtained in model file. 
+## (III)  comparision methods
+PCA,gLPCA,gLSPCA,RgLPCA,SDSPCA. The code of the comparision methods can be obtained in model file. 
 ## (IV) methods references
 #### [1] I. Jolliffe, “Principal component analysis,” Technometrics, vol. 45, no. 3, pp. 276, 2003.
 #### [2]C.-M. Feng, Y. Xu, J.-X. Liu, Y.-L. Gao, and C.-H. Zheng, “Supervised discriminative sparse PCA for com-characteristic gene selection and tumor classification on multiview biological data,” IEEE transactions on neural networks and learning systems, vol. 30, no. 10, pp. 2926-2937, 2019.
