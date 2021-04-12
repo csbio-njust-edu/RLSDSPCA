@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
 warnings.filterwarnings("ignore")
-datapath1 = 'correct_a_b4.csv'
+datapath1 = 'correct_a_b_k4.csv'
 mean_correct_rate = pd.read_csv(datapath1).values
 xaxis = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200,210]
 yaxis = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200,210]
