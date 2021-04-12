@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore")
 
 labels = ['ACC', 'Macro-REC', 'Macro-PRE', 'Macro-F1', 'Macro-AUC']
 erKNN_path = 'evaluation_results.csv'
-erKNN = pd.read_csv(erKNN_path)
+erKNN = pd.read_csv(erKNN_path,header = None)
 print(erKNN)
 PCA_erKNN =  erKNN.iloc[:,1].tolist()
 gLPCA_erKNN =  erKNN.iloc[:,2].tolist()
