@@ -187,7 +187,7 @@ if __name__ == '__main__':
     print('accuracy_var = ', accuracy_var)
     print('accuracy_std = ', accuracy_std)
     mean_accuracy_rate_PD = pd.DataFrame(accuracylist)
-    datapath1 = '..\\data\\accuracy_RLSDSPCA.csv'
+    datapath1 = '..\\plot\\accuracy_RLSDSPCA.csv'
     mean_accuracy_rate_PD.to_csv(datapath1, index=False)
 
     precision_mean = np.mean(precisionlist)
@@ -197,7 +197,7 @@ if __name__ == '__main__':
     print('precision_var = ', precision_var)
     print('precision_std = ', precision_std)
     mean_precision_rate_PD = pd.DataFrame(precisionlist)
-    datapath2 = '..\\data\\precision_RLSDSPCA.csv'
+    datapath2 = '..\\plot\\precision_RLSDSPCA.csv'
     mean_precision_rate_PD.to_csv(datapath2, index=False)
 
     recall_mean = np.mean(recalllist)
@@ -207,7 +207,7 @@ if __name__ == '__main__':
     print('recall_var = ', recall_var)
     print('recall_std = ', recall_std)
     mean_recall_rate_PD = pd.DataFrame(recalllist)
-    datapath3 = '..\\data\\recall_RLSDSPCA.csv'
+    datapath3 = '..\\plot\\recall_RLSDSPCA.csv'
     mean_recall_rate_PD.to_csv(datapath3, index=False)
 
     f1_mean = np.mean(f1list)
@@ -217,5 +217,5 @@ if __name__ == '__main__':
     print('f1_var = ', f1_var)
     print('f1_std = ', f1_std)
     mean_f1_rate_PD = pd.DataFrame(f1list)
-    datapath4 = '..\\data\\f1_RLSDSPCA.csv'
+    datapath4 = '..\\plot\\f1_RLSDSPCA.csv'
     mean_f1_rate_PD.to_csv(datapath4, index=False)
