@@ -133,7 +133,7 @@ def cal_projections(X_data,B_data,k_d):
 
 if __name__ == '__main__':
     X_filepath = '..\\data\\X_original_G.csv'
-    X_original = pd.read_csv(X_filepath)
+    X_original = pd.read_csv(X_filepath,header = None)
     X_original = X_original.values
     sc = MinMaxScaler()
     # fit_transform Parameters
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     X_original = sc.fit_transform(X_original)
     X_original = X_original.transpose()
     Y_filepath = '..\\data\\gnd4class_4_GAI.csv'
-    Y_gnd4class4 = pd.read_csv(Y_filepath)
+    Y_gnd4class4 = pd.read_csv(Y_filepath,header = None)
     Y_gnd4class4 = Y_gnd4class4.values.transpose()
     X = np.mat(X_original)
     B = np.mat(Y_gnd4class4)
