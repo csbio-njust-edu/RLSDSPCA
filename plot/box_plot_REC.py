@@ -11,7 +11,7 @@ import seaborn as sns
 warnings.filterwarnings("ignore")
 
 ALLpath = 'recall_ALL.csv'
-ALL = pd.read_csv(ALLpath)
+ALL = pd.read_csv(ALLpath,header = None)
 ALL_er = ALL.iloc[:,[6,5,4,3,2,1]]
 print(ALL_er)
 plt.rc('font', family='Arial')
