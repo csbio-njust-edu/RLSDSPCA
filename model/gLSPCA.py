@@ -70,14 +70,14 @@ def cal_laplace(data):
     L = H - data  # Laplacian
     return L
 
-def gLSPCA_Algorithm(xMat,laplace,beta,garma,k,n):
+def gLSPCA_Algorithm(xMat,laplace,beta,gamma,k,n):
     obj1 = 0
     obj2 = 0
     thresh = 1e-50
     V = np.eye(n)
     vMat = np.mat(V)
     for m in range(0, 10):
-        Z = -(xMat.T * xMat) + beta * vMat + garma * laplace
+        Z = -(xMat.T * xMat) + beta * vMat + gamma * laplace
         # cal Q
         Z_eigVals, Z_eigVects = np.linalg.eig(np.mat(Z))
         eigValIndice = np.argsort(Z_eigVals)
