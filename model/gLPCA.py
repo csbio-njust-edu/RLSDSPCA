@@ -70,8 +70,8 @@ def cal_laplace(data):
     L = H - data  # Laplacian
     return L
 
-def gLPCA_Algorithm(xMat,laplace,garma,k,n):
-    Z = -(xMat.T * xMat) + garma * laplace
+def gLPCA_Algorithm(xMat,laplace,gamma,k,n):
+    Z = -(xMat.T * xMat) + gamma * laplace
     # cal Q
     Z_eigVals, Z_eigVects = np.linalg.eig(np.mat(Z))
     eigValIndice = np.argsort(Z_eigVals)
