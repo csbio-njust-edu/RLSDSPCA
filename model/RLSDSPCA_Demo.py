@@ -44,6 +44,7 @@ def Eu_dis(x):
     dist_mat[dist_mat < 0] = 0
     dist_mat = np.sqrt(dist_mat)
     dist_mat = np.maximum(dist_mat, dist_mat.T)
+    dist_mat = np.asarray(dist_mat)
     return dist_mat
 
 def cal_rbf_dist(data, n_neighbors, t):
