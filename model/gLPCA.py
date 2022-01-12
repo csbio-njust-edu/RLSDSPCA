@@ -55,30 +55,13 @@ def cal_laplace(data):
     return L
 
 def gLPCA_Algorithm(xMat,laplace,garma,k,n):
-    # I = np.eye(n)
-    # I = np.mat(I)
-    # print('xMat = ',xMat)
-    # print('xMat.shape = ', xMat.shape)
-    # print('bMat = ', bMat)
-    # print('bMat.shape = ', bMat.shape)
-    # Z0 = xMat.T * xMat - beta * vMat
-    # max_eig_Z0 = max(np.linalg.eig(Z0)[0])
-    # max_eig_laplace = max(np.linalg.eig(laplace)[0])
-    # Z = (1 - garma) * (I - Z0 / max_eig_Z0) + garma * (laplace / max_eig_laplace)
     Z = -(xMat.T * xMat) + garma * laplace  # (643, 643)
-    # Z = -(xMat.T * xMat) - (alpha * bMat.T * bMat) + beta * vMat  # (643, 643)
-    # 计算Q
     Z_eigVals, Z_eigVects = np.linalg.eig(np.mat(Z))
-    # 对特征值从小到大排序
     eigValIndice = np.argsort(Z_eigVals)
-    # 最小的k个特征值的下标,
-    # k表示降维的个数
     n_eigValIndice = eigValIndice[0:k]
-    # 最小的k个特征值对应的特征向量
     n_Z_eigVect = Z_eigVects[:, n_eigValIndice]
     Q = np.array(n_Z_eigVect)  # (643, 3)
     qMat = np.mat(Q)  # (643, 3)
-    # 计算Y
     Y = xMat * qMat  # (20502, 3)
     return Y
 
