@@ -60,32 +60,18 @@ def SDSPCA_Algorithm(xMat,bMat,alpha,beta,k,c,n):
     V = np.eye(n)  # (500, 500)
     vMat = np.mat(V)  # (500, 500)
     for m in range(0, 10):
-        # print('xMat = ',xMat)
-        # print('xMat.shape = ', xMat.shape)
-        # print('bMat = ', bMat)
-        # print('bMat.shape = ', bMat.shape)
         Z = -(xMat.T * xMat) - (alpha * bMat.T * bMat) + beta * vMat # (643, 643)
-        # Z = -(xMat.T * xMat) - (alpha * bMat.T * bMat) + beta * vMat  # (643, 643)
-        # 计算Q
         Z_eigVals, Z_eigVects = np.linalg.eig(np.mat(Z))
-        # 对特征值从小到大排序
         eigValIndice = np.argsort(Z_eigVals)
-        # 最小的k个特征值的下标,
-        # k表示降维的个数
         n_eigValIndice = eigValIndice[0:k]
-        # 最小的k个特征值对应的特征向量
         n_Z_eigVect = Z_eigVects[:, n_eigValIndice]
         Q = np.array(n_Z_eigVect)  # (643, 3)
-        # 计算V
-        # 计算Q的行二范数
         q = np.linalg.norm(Q, ord=2, axis=1)
         qq = 1.0 / (q * 2)
         VV = np.diag(qq)  # (643, 643)
         vMat = np.mat(VV)  # (643, 643)
         qMat = np.mat(Q)  # (643, 3)
-        # 计算Y
         Y = xMat * qMat  # (20502, 3)
-        # 计算A
         A = bMat * qMat  # (4, 3)
 
         # obj1 = (np.linalg.norm(xMat - Y * qMat.T, ord='fro')) ** 2 + alpha * (
