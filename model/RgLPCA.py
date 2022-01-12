@@ -68,42 +68,22 @@ def RgLPCA_Algorithm(xMat,laplace,garma,k):
     laplace = np.mat(laplace)
     miu = 1
     for m in range(0, 10):
-        # print('xMat = ',xMat)
-        # print('type(xMat) = ', type(xMat))
-        # print('xMat.shape = ', xMat.shape)
-        # Z0 = xMat.T * xMat - beta * vMat
-        # max_eig_Z0 = max(np.linalg.eig(Z0)[0])
-        # max_eig_laplace = max(np.linalg.eig(laplace)[0])
-        # print('type(laplace) = ', type(laplace))
-        # Z = (1 - garma) * (I - Z0 / max_eig_Z0) + garma * (laplace / max_eig_laplace)
         Z = (-(miu/2) * ((E - xMat + C/miu).T * (E - xMat + C/miu)))  + garma * laplace  # (643, 643)
-        # 计算Q
         Z_eigVals, Z_eigVects = np.linalg.eig(np.mat(Z))
-        # 对特征值从小到大排序
         eigValIndice = np.argsort(Z_eigVals)
-        # 最小的k个特征值的下标,
-        # k表示降维的个数
         n_eigValIndice = eigValIndice[0:k]
-        # 最小的k个特征值对应的特征向量
         n_Z_eigVect = Z_eigVects[:, n_eigValIndice]
         Q = np.array(n_Z_eigVect)  # (643, 3)
-        # # 计算V
-        # # 计算Q的行二范数
         # q = np.linalg.norm(Q, ord=2, axis=1)
         # qq = 1.0 / (q * 2)
         # VV = np.diag(qq)  # (643, 643)
         # vMat = np.mat(VV)  # (643, 643)
         qMat = np.mat(Q)  # (643, 3)
-        # 计算Y
         Y = (xMat - E - C/miu) * qMat  # (20502, 3)
-        # 计算A
         A = xMat - Y * qMat.T - C/miu
-        # 计算E
         for i in range(E.shape[1]):
             E[:,i] = (np.max((1 - 1.0 / (miu * np.linalg.norm(A[:,i]))),0)) * A[:,i]
-        # 计算C
         C = C + miu * (E - xMat + Y * qMat.T)
-        # 计算miu
         miu = 1.2 * miu
 
         obj1 = np.linalg.norm(qMat)
